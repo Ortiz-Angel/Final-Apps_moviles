@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Horóscopo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="custom-card">
+    <ion-card-header>
+      <ion-card-title class="custom-title">{{ horoscopo.signo }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p class="custom-text">Consejo: {{ horoscopo.consejo }}</p>
+      <p class="custom-text">Alerta: {{ horoscopo.alerta }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

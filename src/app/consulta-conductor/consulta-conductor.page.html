@@ -1,0 +1,41 @@
+<!-- consulta-conductor.page.html -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Consulta Conductor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label>Licencia de Conducir </ion-label>
+    <ion-input [(ngModel)]="licencia"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="consultarConductor()">Consultar Conductor</ion-button>
+
+  <!-- Mostrar detalles solo si datosConductor está definido -->
+  <ion-card *ngIf="datosConductor && datosConductor.constructor === Object && Object.keys(datosConductor).length > 0">
+    <ion-card-header>
+      <ion-card-title>{{ datosConductor.nombre }} {{ datosConductor.apellido }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-img [src]="datosConductor.foto" class="foto"></ion-img>
+      <ion-item *ngIf="datosConductor.fecha_nacimiento">
+        <ion-label>Fecha de Nacimiento:</ion-label>
+        <ion-note slot="end">{{ datosConductor.fecha_nacimiento }}</ion-note>
+      </ion-item>
+      <ion-item *ngIf="datosConductor.direccion">
+        <ion-label>Dirección:</ion-label>
+        <ion-note slot="end">{{ datosConductor.direccion }}</ion-note>
+      </ion-item>
+      <ion-item *ngIf="datosConductor.telefono">
+        <ion-label>Teléfono:</ion-label>
+        <ion-note slot="end">{{ datosConductor.telefono }}</ion-note>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

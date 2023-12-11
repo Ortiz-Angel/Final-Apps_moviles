@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalles de Multa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="multa">
+    <ion-card-header>
+      <ion-card-subtitle>Código: {{ multa.codigo }}</ion-card-subtitle>
+      <ion-card-title>{{ multa.nombre }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Motivo: {{ multa.motivo }}</p>
+      <!-- Agrega más detalles si es necesario -->
+    </ion-card-content>
+  </ion-card>
+</ion-content>

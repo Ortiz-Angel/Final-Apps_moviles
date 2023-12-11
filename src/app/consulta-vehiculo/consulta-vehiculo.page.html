@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Consulta Vehiculo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-label>Placa: </ion-label>
+      <ion-input [(ngModel)]="placa"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" (click)="consultarVehiculo()">Consultar Vehiculo</ion-button>
+
+    <!-- Mostrar detalles solo si datos está definido -->
+    <ion-item *ngIf="datos.tipo_vehiculo">
+      <ion-label>Tipo de vehículo: </ion-label>
+      <ion-input [(ngModel)]="datos.tipo_vehiculo"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="datos.color">
+      <ion-label>Color:</ion-label>
+      <ion-input [(ngModel)]="datos.color"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="datos.ano_fabricacion">
+      <ion-label>Año de fabricación:</ion-label>
+      <ion-input [(ngModel)]="datos.ano_fabricacion"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="datos.propietario">
+      <ion-label>Propietario:</ion-label>
+      <ion-input [(ngModel)]="datos.propietario"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="datos.estado">
+      <ion-label>Estado:</ion-label>
+      <ion-input [(ngModel)]="datos.estado"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="datos.marca">
+      <ion-label>Marca:</ion-label>
+      <ion-input [(ngModel)]="datos.marca"></ion-input>
+    </ion-item>
+  </ion-card>
+</ion-content>

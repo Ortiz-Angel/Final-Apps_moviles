@@ -1,0 +1,108 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Aplicar Multa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-label>Cédula del Infractor</ion-label>
+      <ion-input [(ngModel)]="cedulaInfractor"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Placa del Vehículo</ion-label>
+      <ion-input [(ngModel)]="placaVehiculo"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Motivo de la Multa</ion-label>
+      <ion-select [(ngModel)]="motivoMulta">
+        <ion-select-option *ngFor="let motivo of motivos" [value]="motivo">{{ motivo }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <!-- aplicar-multa.page.html -->
+    <ion-item>
+      <ion-label>Foto Evidencia</ion-label>
+      <ion-input type="file" accept="image/*" (change)="onFileChange($event)"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label>Comentario</ion-label>
+      <ion-input [(ngModel)]="comentario"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Latitud</ion-label>
+      <ion-input [(ngModel)]="latitud"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Longitud</ion-label>
+      <ion-input [(ngModel)]="longitud"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Fecha</ion-label>
+      <ion-datetime display-format="YYYY-MM-DD" [(ngModel)]="fecha"></ion-datetime>
+    </ion-item>
+
+
+    <ion-button expand="full" (click)="guardarMulta()">Guardar</ion-button>
+  </ion-card>
+
+  <!-- Mostrar detalles solo si datosMulta está definido -->
+<ion-card *ngIf="datosMulta && datosMulta instanceof Object && Object.keys(datosMulta).length > 0">
+    <ion-card-header>
+      <ion-card-title>Datos de la Multa</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item *ngIf="datosMulta.cedulaInfractor">
+        <ion-label>Cédula del Infractor:</ion-label>
+        <ion-note slot="end">{{ datosMulta.cedulaInfractor }}</ion-note>
+      </ion-item>
+
+      <ion-item *ngIf="datosMulta.placaVehiculo">
+        <ion-label>Placa del Vehículo:</ion-label>
+        <ion-note slot="end">{{ datosMulta.placaVehiculo }}</ion-note>
+      </ion-item>
+
+      <ion-item *ngIf="datosMulta.motivoMulta">
+        <ion-label>Motivo de la Multa:</ion-label>
+        <ion-note slot="end">{{ datosMulta.motivoMulta }}</ion-note>
+      </ion-item>
+
+      <ion-item *ngIf="datosMulta.fotoEvidencia">
+        <ion-label>Foto Evidencia:</ion-label>
+        <img [src]="datosMulta.fotoEvidencia" alt="Evidencia">
+      </ion-item>
+
+      <ion-item *ngIf="datosMulta.comentario">
+        <ion-label>Comentario:</ion-label>
+        <ion-note slot="end">{{ datosMulta.comentario }}</ion-note>
+      </ion-item>
+
+      <ion-item *ngIf="datosMulta.latitud">
+        <ion-label>Latitud:</ion-label>
+        <ion-note slot="end">{{ datosMulta.latitud }}</ion-note>
+      </ion-item>
+
+      <ion-item *ngIf="datosMulta.longitud">
+        <ion-label>Longitud:</ion-label>
+        <ion-note slot="end">{{ datosMulta.longitud }}</ion-note>
+      </ion-item>
+
+      <ion-item *ngIf="datosMulta.fecha">
+        <ion-label>Fecha:</ion-label>
+        <ion-note slot="end">{{ datosMulta.fecha }}</ion-note>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

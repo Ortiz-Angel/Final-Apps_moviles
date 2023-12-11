@@ -1,0 +1,20 @@
+<!-- clima.page.html -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="font-size: 1.5em;">Estado del Clima</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title style="font-size: 1.2em;">{{ clima.name }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p style="font-size: 1.5em;">Temperatura: {{ clima.main?.temp }}°C</p>
+      <p style="font-size: 1.5em;">Condiciones: {{ clima.weather?.[0]?.description }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
